@@ -13,7 +13,7 @@ module.exports = {
    * entries 收集了多个入口文件，并且每个入口文件还引用了用于热更新的文件
    * entries 是一个对象， key 为目录名
    */
-  entry: fs.readFileSync(__dirname).reduce((entries, dir) => {
+  entry: fs.readdirSync(__dirname).reduce((entries, dir) => {
     const fullDir = path.join(__dirname, dir)
     const entry = path.join(fullDir, 'app.ts')
     if(fs.statSync(fullDir).isDirectory() && fs.existsSync(entry)){

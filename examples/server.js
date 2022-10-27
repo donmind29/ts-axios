@@ -9,7 +9,7 @@ const webpackConfig = require('./webpack.config')
 const app = express()
 const compiler = webpack(webpackConfig)
 
-app.use(webpackDevMiddleware(comppiler, {
+app.use(webpackDevMiddleware(compiler, {
   publicPath: '/__build__/',
   stats:{
     colors: true,
